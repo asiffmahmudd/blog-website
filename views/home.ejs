@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') -%>
+
+<h1>Home</h1>
+<p><%= para %></p>
+
+<% posts.forEach(function(post){ %>
+   <% const link = "/posts/"+post.postTitle %>
+   <h1><%= post.postTitle %></h1>
+   <% if(post.postBody.length >= 100){ %>
+      <p><%= post.postBody.substr(0,100) + ' ...' %><a href="<%= link %>">Read More</a></p>
+   <% } else{ %>
+      <p><%= post.postBody %> <a href="<%= link %>">Read More</a></p>
+   <% } %>
+<% }) %>
+
+<%- include('partials/footer.ejs') -%>
